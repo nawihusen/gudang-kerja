@@ -9,7 +9,7 @@ import java.util.List;
 public interface ProductService {
     void addProduct(ProductRequest product, String token);
 
-    void updateProduct(ProductRequest product, String token);
+    void updateProduct(ProductRequest product, Long id,String token);
 
     void deleteProduct(Long id, String token);
 

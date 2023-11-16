@@ -15,7 +15,7 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    ProductService productService;
+     private ProductService productService;
 
     @PostMapping(path = "/product", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Response<String> postProduct(@RequestBody ProductRequest request){
@@ -23,9 +23,9 @@ public class ProductController {
         return Response.<String>builder().data("Berhasil Menambahkan Barang").build();
     }
 
-    @PatchMapping(path = "/product", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Response<String> patchProduct(@RequestBody ProductRequest request){
-        productService.updateProduct(request, "token");
+    @PatchMapping(path = "/product/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Response<String> patchProduct(@RequestBody ProductRequest request, @PathVariable Long id){
+        productService.updateProduct(request, id, "token");
         return Response.<String>builder().data("Berhasil Update data").build();
     }
 
