@@ -26,13 +26,17 @@ public class Product {
 
     private String name;
 
-    private String desc;
+    private String description;
 
     private String image;
 
     private Long price;
 
     private Long stock;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User userId;
 
     @CreatedDate
     @Column(name = "created_at")

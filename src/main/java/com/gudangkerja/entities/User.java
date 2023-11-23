@@ -10,6 +10,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
+import java.util.List;
 
 @Getter
 @Setter
@@ -35,6 +36,9 @@ public class User {
     private String password;
 
     private String address;
+
+    @OneToMany(mappedBy = "userId")
+    private List<Product> products;
 
     @CreatedDate
     @Column(name = "created_at")

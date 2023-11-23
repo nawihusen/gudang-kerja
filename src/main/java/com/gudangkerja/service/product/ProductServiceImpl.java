@@ -27,7 +27,7 @@ public class ProductServiceImpl implements ProductService {
     public void addProduct(ProductRequest request, String token) {
         var product = new Product();
         product.setName(request.getName());
-        product.setDesc(request.getDesc());
+        product.setDescription(request.getDesc());
         product.setImage(request.getImage());
         product.setPrice(request.getPrice());
         product.setStock(request.getStock());
@@ -46,7 +46,7 @@ public class ProductServiceImpl implements ProductService {
         }
 
         if (Objects.nonNull(request.getDesc())){
-            product.setDesc(request.getDesc());
+            product.setDescription(request.getDesc());
         }
 
         if (Objects.nonNull(request.getImage())){
@@ -94,7 +94,7 @@ public class ProductServiceImpl implements ProductService {
         var response = new ProductResponse();
         response.setId(product.getId());
         response.setName(product.getName());
-        response.setDesc(product.getDesc());
+        response.setDesc(product.getDescription());
         response.setImage(product.getImage());
         response.setPrice(product.getPrice());
         response.setStock(product.getStock());
