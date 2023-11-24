@@ -8,7 +8,7 @@ public interface UserService {
 
     void register(UserRegisterRequest request);
 
-    void updateData(UserUpdate request);
+    void updateData(UserUpdate request, Long id);
 
     void delete(Long id);
 
