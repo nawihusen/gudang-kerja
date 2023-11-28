@@ -16,6 +16,8 @@ public class ProductRequest {
 
     private String image;
 
+    private String modal;
+
     private Long price;
 
     private Long stock;

@@ -1,5 +1,6 @@
 package com.gudangkerja.model.product;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
@@ -23,6 +24,9 @@ public class ProductResponse {
     private String desc;
 
     private String image;
+
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private Long modal;
 
     private Long price;
 

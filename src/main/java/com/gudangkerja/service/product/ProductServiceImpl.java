@@ -74,7 +74,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductResponse getProduct(Long id) {
+    public ProductResponse getProduct(Long id, String token) {
         var product = productRepository.findById(id).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "barang tidak di temukan"));
 
@@ -82,7 +82,14 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductResponse> getProducts() {
+    public List<ProductResponse> getProducts(String name) {
+        if (name != null){
+            var products = productRepository.findAll();
+            List<ProductResponse> responses = products.stream()
+                    .map(data -> toResponse(data))
+                    .collect(Collectors.toList());
+            return null;
+        }
         var products = productRepository.findAll();
         List<ProductResponse> responses = products.stream()
                 .map(data -> toResponse(data))

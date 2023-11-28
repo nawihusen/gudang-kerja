@@ -13,7 +13,7 @@ public interface ProductService {
 
     void deleteProduct(Long id, String token);
 
-    ProductResponse getProduct(Long id);
+    ProductResponse getProduct(Long id, String token);
 
-    List<ProductResponse> getProducts();
+    List<ProductResponse> getProducts(String name);
 }
